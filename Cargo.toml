@@ -1,0 +1,17 @@
+[package]
+name = "lwam"
+version = "0.1.0"
+authors = ["Сухарик <65870+suhr@users.noreply.github.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dirs = "2.0.2"
+downcast = "0.10.0"
+indexmap = "1.0.2"
+lazy_static = "1.4.0"
+libc = "0.2.62"
+nix = "0.15.0"
+ordered-float = "0.5.0"
+ref_thread_local = "0.0.0"
