@@ -1,14 +1,14 @@
 extern crate termion;
 mod prolog;
 
-use prolog::io::*;
-use prolog::machine::*;
-use prolog::prolog_parser::*;
+use crate::prolog::io::*;
+use crate::prolog::machine::*;
+use crate::prolog::prolog_parser::*;
 
 #[cfg(test)]
 mod tests {
     use super::*;
-    use prolog::codegen::*;
+    use crate::prolog::codegen::*;
 
     fn submit(wam: &mut Machine, buffer: &str) -> bool {
         wam.reset();

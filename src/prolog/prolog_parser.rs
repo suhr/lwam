@@ -1,11 +1,11 @@
-use prolog::ast::*;
+use crate::prolog::ast::*;
 use std::cell::Cell;
 extern crate lalrpop_util as __lalrpop_util;
 
 mod __parse__TopLevel {
     #![allow(non_snake_case, non_camel_case_types, unused_mut, unused_variables, unused_imports)]
 
-    use prolog::ast::*;
+    use crate::prolog::ast::*;
     use std::cell::Cell;
     extern crate lalrpop_util as __lalrpop_util;
     #[allow(dead_code)]

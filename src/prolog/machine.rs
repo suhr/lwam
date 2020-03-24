@@ -1,9 +1,9 @@
-use prolog::ast::*;
-use prolog::codegen::*;
-use prolog::heapview::*;
-use prolog::and_stack::*;
-use prolog::or_stack::*;
-use prolog::fixtures::*;
+use crate::prolog::ast::*;
+use crate::prolog::codegen::*;
+use crate::prolog::heapview::*;
+use crate::prolog::and_stack::*;
+use crate::prolog::or_stack::*;
+use crate::prolog::fixtures::*;
 
 use std::collections::HashMap;
 use std::ops::{Index, IndexMut};

@@ -1,7 +1,7 @@
-use prolog::ast::*;
-use prolog::codegen::*;
-use prolog::debray_allocator::*;
-use prolog::machine::*;
+use crate::prolog::ast::*;
+use crate::prolog::codegen::*;
+use crate::prolog::debray_allocator::*;
+use crate::prolog::machine::*;
 
 use termion::raw::IntoRawMode;
 use termion::input::TermRead;

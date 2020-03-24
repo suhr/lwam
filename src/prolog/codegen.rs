@@ -1,9 +1,9 @@
-use prolog::allocator::*;
-use prolog::ast::*;
-use prolog::fixtures::*;
-use prolog::indexing::*;
-use prolog::iterators::*;
-use prolog::targets::*;
+use crate::prolog::allocator::*;
+use crate::prolog::ast::*;
+use crate::prolog::fixtures::*;
+use crate::prolog::indexing::*;
+use crate::prolog::iterators::*;
+use crate::prolog::targets::*;
 
 use std::cell::Cell;
 use std::collections::HashMap;

@@ -1,4 +1,4 @@
-use prolog::ast::*;
+use crate::prolog::ast::*;
 
 use std::collections::{HashMap, VecDeque};
 use std::hash::Hash;

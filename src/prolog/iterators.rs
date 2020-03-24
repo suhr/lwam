@@ -1,4 +1,4 @@
-use prolog::ast::*;
+use crate::prolog::ast::*;
 
 use std::cell::Cell;
 use std::collections::VecDeque;
@@ -212,7 +212,7 @@ impl Term {
 pub struct ChunkedIterator<'a>
 {
     at_head: bool,
-    iter: Box<Iterator<Item=TermOrCutRef<'a>> + 'a>,
+    iter: Box<dyn Iterator<Item=TermOrCutRef<'a>> + 'a>,
     deep_cut_encountered: bool
 }
 
@@ -220,7 +220,7 @@ impl<'a> ChunkedIterator<'a>
 {
     pub fn from_term(term: &'a Term, at_head: bool) -> Self
     {
-        let inner_iter: Box<Iterator<Item=TermOrCutRef<'a>>> =
+        let inner_iter: Box<dyn Iterator<Item=TermOrCutRef<'a>>> =
             Box::new(once(TermOrCutRef::Term(term)));
 
         ChunkedIterator {
@@ -251,7 +251,7 @@ impl<'a> ChunkedIterator<'a>
         let &Rule { head: (ref p0, ref p1), ref clauses } = rule;
         let iter = once(TermOrCutRef::Term(p0));
 
-        let inner_iter : Box<Iterator<Item=TermOrCutRef<'a>>> = match p1 {
+        let inner_iter : Box<dyn Iterator<Item=TermOrCutRef<'a>>> = match p1 {
             &TermOrCut::Term(ref p1) => Box::new(once(TermOrCutRef::Term(p1))),
             _ => Box::new(empty())
         };

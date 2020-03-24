@@ -1,6 +1,6 @@
-use prolog::ast::*;
-use prolog::fixtures::*;
-use prolog::targets::*;
+use crate::prolog::ast::*;
+use crate::prolog::fixtures::*;
+use crate::prolog::targets::*;
 
 use std::cell::Cell;
 
@@ -8,17 +8,17 @@ pub trait Allocator<'a>
 {
     fn new() -> Self;
     
-    fn mark_anon_var<Target>(&mut self, Level, &mut Vec<Target>)
+    fn mark_anon_var<Target>(&mut self, level: Level, targets: &mut Vec<Target>)
         where Target: CompilationTarget<'a>;
-    fn mark_non_var<Target>(&mut self, Level, GenContext, &'a Cell<RegType>, &mut Vec<Target>)
+    fn mark_non_var<Target>(&mut self, level: Level, context: GenContext, regtype: &'a Cell<RegType>, targets: &mut Vec<Target>)
         where Target: CompilationTarget<'a>;
-    fn mark_var<Target>(&mut self, &'a Var, Level, &'a Cell<VarReg>, GenContext, &mut Vec<Target>)
+    fn mark_var<Target>(&mut self, var: &'a Var, level:  Level, varreg: &'a Cell<VarReg>, context: GenContext, targets: &mut Vec<Target>)
         where Target: CompilationTarget<'a>;    
     
     fn reset(&mut self);
     fn reset_contents(&mut self) {}
 
-    fn advance(&mut self, GenContext, &'a Term);
+    fn advance(&mut self, context: GenContext, term: &'a Term);
     fn advance_arg(&mut self);
 
     fn bindings(&self) -> &AllocVarDict<'a>;

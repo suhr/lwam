@@ -1,5 +1,5 @@
-use prolog::and_stack::*;
-use prolog::ast::*;
+use crate::prolog::and_stack::*;
+use crate::prolog::ast::*;
 
 use std::vec::Vec;
 

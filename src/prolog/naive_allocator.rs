@@ -1,7 +1,7 @@
-use prolog::allocator::*;
-use prolog::ast::*;
-use prolog::fixtures::*;
-use prolog::targets::*;
+use crate::prolog::allocator::*;
+use crate::prolog::ast::*;
+use crate::prolog::fixtures::*;
+use crate::prolog::targets::*;
 
 use std::cell::Cell;
 use std::cmp::max;
