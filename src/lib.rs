@@ -2,37 +2,44 @@
 
 pub mod prolog;
 
+pub struct Constant(usize);
+pub struct Functor {
+    name: usize,
+    arity: u8,
+}
+
+pub struct Predicate(usize);
+
 // TODO: Vn denotes several instructions
 pub enum Instruction {
-    PutVariableX { n: usize, ai: usize },
-    PutVariableY { n: usize, i: usize },
-    PutValue { vn: usize, ai: usize },
+    PutVariable { is_temp: bool, vn: usize, ai: usize },
+    PutValue { is_temp: bool, vn: usize, ai: usize },
     PutUnsafeValue { n: usize, ai: usize },
-    PutStructure { f: (), ai: usize },
+    PutStructure { f: Functor, ai: usize },
     PutList(usize),
-    PutConstant { c: (), ai: usize },
+    PutConstant { c: Constant, ai: usize },
 
-    GetVariable { vn: usize, ai: usize },
-    GetValue { vn: usize, ai: usize },
-    GetStrucutre { f: (), ai: usize },
+    GetVariable { is_temp: bool, vn: usize, ai: usize },
+    GetValue { is_temp: bool, vn: usize, ai: usize },
+    GetStrucutre { f: Functor, ai: usize },
     GetList(usize),
-    GetConstant { c: (), ai: usize },
+    GetConstant { c: Constant, ai: usize },
 
     SetVariable(usize),
     SetValue(usize),
     SetLocalValue(usize),
-    SetConstant(()),
+    SetConstant(Constant),
     SetVoid(usize),
 
     UnifyVariable(usize),
     UnifyValue(usize),
     UnifyLocalValue(usize),
-    UnifyConstant(()),
+    UnifyConstant(Constant),
     UnifyVoid(usize),
 
     Allocate,
     Deallocate,
-    Call { p: (), n: usize },
+    Call { p: Predicate, n: usize },
     Execute(()),
     Proceed,
 
@@ -52,4 +59,14 @@ pub enum Instruction {
     Cut(usize),
 }
 
-pub struct Machine {}
+enum Cell {
+    Constant(Constant),
+    List(usize),
+    NamedStruct { name: usize, len: usize },
+    HeapRef(usize),
+    StackRef(usize, usize),
+    Struct(usize)
+}
+
+pub struct Machine {
+}
