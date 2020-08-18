@@ -1,0 +1,19 @@
+[package]
+name = "lwam"
+version = "0.1.0"
+authors = ["Сухарик <65870+suhr@users.noreply.github.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+smol_str = "*"
+
+[dependencies.termion]
+version = "1.2.0"
+
+[dependencies.lalrpop-util]
+version = "0.12.5"
+
+[build-dependencies.lalrpop]
+version = "0.12.5"
